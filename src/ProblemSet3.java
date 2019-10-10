@@ -31,7 +31,7 @@ public class ProblemSet3 {
         // ps.sign();          // executes Exercise 1
         // ps.parity();        // executes Exercise 2
         // ps.ordered();       // executes Exercise 3
-        ps.gpa();           // executes Exercise 4
+        // ps.gpa();           // executes Exercise 4
         ps.grade();         // executes Exercise 5
         ps.cards();         // executes Exercise 6
         ps.leapYear();      // executes Exercise 7
@@ -117,25 +117,6 @@ public class ProblemSet3 {
      */
 
     public void gpa() {
-      System.out.print("\nEnter a letter grade: ");
-      String letterGrade = in.nextLine();
-
-      double letter = letterGrade.subString(0, 1);
-      String plusMinus = letterGrade.subString(1);
-
-      if (letter == "A"){
-        int letterToGrade = A
-      } else if (letter == "B"){
-        int letterToGrade = B
-      } else if (letter == "C"){
-        int letterToGrade = C
-      } else if (letter == "D"){
-        int letterToGrade = D
-      } else if (letter == "F"){
-        int letterToGrade = F
-      } else {
-        System.out.println("\nThat's not a valid letter grade.");
-      }
 
       final double A = 4.00;
       final double B = 3.00;
@@ -144,9 +125,44 @@ public class ProblemSet3 {
       final double F = 0.00;
       final double PLUS_MINUS = 0.33;
 
+      System.out.print("\nEnter a letter grade: ");
+      String letterGrade = in.nextLine();
 
+      String letter = letterGrade.substring(0, 1);
+      String plusMinus = letterGrade.substring(1);
+      letter = letter.toUpperCase();
 
+      double letterToGrade = 0;
+      if (letter.equals("A")){
+        letterToGrade = A;
+      } else if (letter.equals("B")){
+        letterToGrade = B;
+      } else if (letter.equals("C")){
+        letterToGrade = C;
+      } else if (letter.equals("D")){
+        letterToGrade = D;
+      } else if (letter.equals("F")){
+        letterToGrade = F;
+      } else {
+        System.out.println("\nThat's not a valid letter grade.\n");
+      }
 
+      double finalGrade = 0;
+      if (plusMinus.equals("+") && letterToGrade != A){
+        finalGrade = letterToGrade + PLUS_MINUS;
+        System.out.printf("\n%s %.2f%s\n\n", "Your GPA is", finalGrade, ".");
+
+      } else if (plusMinus.equals("-") && letterToGrade != A){
+        finalGrade = letterToGrade - PLUS_MINUS;
+        System.out.printf("\n%s %.2f%s\n\n", "Your GPA is", finalGrade, ".");
+
+      } else if (plusMinus.equals("") || letterToGrade == A){
+        finalGrade = letterToGrade;
+        System.out.printf("\n%s %.2f%s\n\n", "Your GPA is", finalGrade, ".");
+
+      } else {
+        System.out.println("\nThat's not a valid letter grade.\n");
+      }
     }
 
     /*
