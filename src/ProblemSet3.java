@@ -29,8 +29,8 @@ public class ProblemSet3 {
         // comment out or uncomment as needed
 
         // ps.sign();          // executes Exercise 1
-        ps.parity();        // executes Exercise 2
-        ps.ordered();       // executes Exercise 3
+        // ps.parity();        // executes Exercise 2
+        // ps.ordered();       // executes Exercise 3
         ps.gpa();           // executes Exercise 4
         ps.grade();         // executes Exercise 5
         ps.cards();         // executes Exercise 6
@@ -49,8 +49,6 @@ public class ProblemSet3 {
      */
 
     public void sign() {
-      Scanner in = new Scanner(System.in);
-
       System.out.print("\nEnter an integer: ");
       int integer = in.nextInt();
 
@@ -70,8 +68,6 @@ public class ProblemSet3 {
      */
 
     public void parity() {
-      Scanner in = new Scanner(System.in);
-
       System.out.print("\nEnter an integer: ");
       int evenOrOdd = in.nextInt();
 
@@ -89,7 +85,29 @@ public class ProblemSet3 {
      */
 
     public void ordered() {
+      System.out.println("\nEnter three integers. ");
 
+      System.out.print("\nEnter integer: ");
+      int int1 = in.nextInt();
+      System.out.print("Enter integer: ");
+      int int2 = in.nextInt();
+      System.out.print("Enter integer: ");
+      int int3 = in.nextInt();
+      in.nextLine();
+
+      if (int1 > int2 && int2 > int3){
+        System.out.println("\nStrictly decreasing.");
+      } else if (int1 < int2 && int2 < int3){
+        System.out.println("\nStrictly increasing.");
+      } else if (int1 >= int2 && int2 >= int3 && int1 != int3){
+        System.out.println("\nDecreasing.");
+      } else if (int1 <= int2 && int2 <= int3 && int1 != int3){
+        System.out.println("\nIncreasing.");
+      } else if (int1 == int2 && int2 == int3){
+        System.out.println("\nSame.");
+      } else {
+        System.out.println("\nUnordered.");
+      }
     }
 
     /*
@@ -99,6 +117,35 @@ public class ProblemSet3 {
      */
 
     public void gpa() {
+      System.out.print("\nEnter a letter grade: ");
+      String letterGrade = in.nextLine();
+
+      double letter = letterGrade.subString(0, 1);
+      String plusMinus = letterGrade.subString(1);
+
+      if (letter == "A"){
+        int letterToGrade = A
+      } else if (letter == "B"){
+        int letterToGrade = B
+      } else if (letter == "C"){
+        int letterToGrade = C
+      } else if (letter == "D"){
+        int letterToGrade = D
+      } else if (letter == "F"){
+        int letterToGrade = F
+      } else {
+        System.out.println("\nThat's not a valid letter grade.");
+      }
+
+      final double A = 4.00;
+      final double B = 3.00;
+      final double C = 2.00;
+      final double D = 1.00;
+      final double F = 0.00;
+      final double PLUS_MINUS = 0.33;
+
+
+
 
     }
 
