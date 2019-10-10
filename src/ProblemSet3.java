@@ -117,7 +117,6 @@ public class ProblemSet3 {
      */
 
     public void gpa() {
-
       final double A = 4.00;
       final double B = 3.00;
       final double C = 2.00;
@@ -172,7 +171,41 @@ public class ProblemSet3 {
      */
 
     public void grade() {
+      System.out.print("\nEnter a grade: ");
+      double pointGrade = in.nextInt();
 
+      final double A_HIGHEST = 100;
+      final double A_LOWEST = 90;
+      final double B_HIGHEST = 89;
+      final double B_LOWEST = 80;
+      final double C_HIGHEST = 79;
+      final double C_LOWEST = 70;
+      final double D_HIGHEST = 69;
+      final double D_LOWEST = 60;
+      final double F_HIGHEST = 59;
+      final double F_LOWEST = 0;
+
+      String gradeLetter = "";
+      if (pointGrade <= A_HIGHEST && pointGrade >= A_LOWEST){
+        gradeLetter = "A";
+      } else if (pointGrade <= B_HIGHEST && pointGrade >= B_LOWEST){
+        gradeLetter = "B";
+      } else if (pointGrade <= C_HIGHEST && pointGrade >= C_LOWEST){
+        gradeLetter = "C";
+      } else if (pointGrade <= D_HIGHEST && pointGrade >= D_LOWEST){
+        gradeLetter = "D";
+      } else if (pointGrade <= F_HIGHEST && pointGrade >= F_LOWEST){
+        gradeLetter = "F";
+      } else if (pointGrade > A_HIGHEST){
+        System.out.println("\nGrades above 100 are invalid.\n");
+      } else if (pointGrade < F_LOWEST){
+        System.out.println("\nGrades below 0 are invalid.\n");
+      }
+
+      if (!gradeLetter.equals("")){
+        String condition = (gradeLetter.equals("A")||gradeLetter.equals("F")) ? "an " + gradeLetter : "a " + gradeLetter;
+        System.out.println("\nYou received " + condition + ".\n");
+      }
     }
 
     /*
