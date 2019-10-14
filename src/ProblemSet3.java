@@ -149,15 +149,15 @@ public class ProblemSet3 {
       double finalGrade = 0;
       if (plusMinus.equals("+") && letterToGrade != A){
         finalGrade = letterToGrade + PLUS_MINUS;
-        System.out.printf("\n%s %.2f%s\n\n", "Your GPA is", finalGrade, ".");
+        System.out.printf("\n%s %.2f%s\n", "Your GPA is", finalGrade, ".");
 
       } else if (plusMinus.equals("-") && letterToGrade != A){
         finalGrade = letterToGrade - PLUS_MINUS;
-        System.out.printf("\n%s %.2f%s\n\n", "Your GPA is", finalGrade, ".");
+        System.out.printf("\n%s %.2f%s\n", "Your GPA is", finalGrade, ".");
 
       } else if (plusMinus.equals("") || letterToGrade == A){
         finalGrade = letterToGrade;
-        System.out.printf("\n%s %.2f%s\n\n", "Your GPA is", finalGrade, ".");
+        System.out.printf("\n%s %.2f%s\n", "Your GPA is", finalGrade, ".");
 
       } else {
         System.out.println("\nThat's not a valid letter grade.\n");
@@ -204,8 +204,10 @@ public class ProblemSet3 {
 
       if (!gradeLetter.equals("")){
         String condition = (gradeLetter.equals("A")||gradeLetter.equals("F")) ? "an " + gradeLetter : "a " + gradeLetter;
-        System.out.println("\nYou received " + condition + ".\n");
+        System.out.println("\nYou received " + condition + ".");
       }
+
+      in.nextLine();
     }
 
     /*
@@ -217,8 +219,8 @@ public class ProblemSet3 {
     public void cards() {
       System.out.print("\nEnter a card: ");
         String cardInput = in.nextLine().toUpperCase();
-        String suit = String.valueOf(cardInput.charAt(1));
-        String rank = String.valueOf(cardInput.charAt(0));
+        String suit = cardInput.substring(1);
+        String rank = cardInput.substring(0, 1);
 
         switch (suit) {
             case "C":
@@ -276,7 +278,7 @@ public class ProblemSet3 {
                 rank = "Ace";
                 break;
         }
-        System.out.printf("\n%s of %s.\n\n", rank, suit);
+        System.out.printf("\n%s of %s.\n", rank, suit);
     }
 
     /*
@@ -292,7 +294,7 @@ public class ProblemSet3 {
         if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
           System.out.println("\n" + year + " is a leap year.");
         } else {
-          System.out.println("\n" + year + " is not a leap year.\n");
+          System.out.println("\n" + year + " is not a leap year.");
         }
     }
 
@@ -440,10 +442,10 @@ public class ProblemSet3 {
          if (hours > OT_THRESHOLD) {
              otHours = hours - OT_THRESHOLD;
              pay = 40 * wage + otHours * OT_PAY_MULTIPLIER * wage;
-             System.out.printf("\nYou'll make $%,.2f this week.\n\n\n", pay);
+             System.out.printf("\nYou'll make $%,.2f this week.\n\n", pay);
          } else {
              pay = hours * wage;
-             System.out.printf("\nYou'll make $%,.2f this week.\n\n\n", pay);
+             System.out.printf("\nYou'll make $%,.2f this week.\n\n", pay);
          }
      }
 }
