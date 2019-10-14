@@ -32,10 +32,10 @@ public class ProblemSet3 {
         // ps.parity();        // executes Exercise 2
         // ps.ordered();       // executes Exercise 3
         // ps.gpa();           // executes Exercise 4
-        ps.grade();         // executes Exercise 5
-        ps.cards();         // executes Exercise 6
-        ps.leapYear();      // executes Exercise 7
-        ps.state();         // executes Exercise 8
+        // ps.grade();         // executes Exercise 5
+        // ps.cards();         // executes Exercise 6
+        // ps.leapYear();      // executes Exercise 7
+        // ps.state();         // executes Exercise 8
         ps.months();        // executes Exercise 9
         ps.salary();        // executes Exercise 10
 
@@ -215,7 +215,68 @@ public class ProblemSet3 {
      */
 
     public void cards() {
+      System.out.print("\nEnter a card: ");
+        String cardInput = in.nextLine().toUpperCase();
+        String suit = String.valueOf(cardInput.charAt(1));
+        String rank = String.valueOf(cardInput.charAt(0));
 
+        switch (suit) {
+            case "C":
+                suit = "Clubs";
+                break;
+            case "D":
+                suit = "Diamonds";
+                break;
+            case "H":
+                suit = "Hearts";
+                break;
+            case "S":
+                suit = "Spades";
+                break;
+        }
+
+        switch (rank) {
+            case "2":
+                rank = "Two";
+                break;
+            case "3":
+                rank = "Three";
+                break;
+            case "4":
+                rank = "Four";
+                break;
+            case "5":
+                rank = "Five";
+                break;
+            case "6":
+                rank = "Six";
+                break;
+            case "7":
+                rank = "Seven";
+                break;
+            case "8":
+                rank = "Eight";
+                break;
+            case "9":
+                rank = "Nine";
+                break;
+            case "T":
+                rank = "Ten";
+                break;
+            case "J":
+                rank = "Jack";
+                break;
+            case "Q":
+                rank = "Queen";
+                break;
+            case "K":
+                rank = "King";
+                break;
+            case "A":
+                rank = "Ace";
+                break;
+        }
+        System.out.printf("\n%s of %s.\n\n", rank, suit);
     }
 
     /*
@@ -225,7 +286,14 @@ public class ProblemSet3 {
      */
 
     public void leapYear() {
+      System.out.print("\nEnter a year: ");
+      long year = in.nextLong();
 
+      if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+        System.out.println("\n" + year + " is a leap year.");
+      } else {
+        System.out.println("\n" + year + " is not a leap year.\n");
+      }
     }
 
     /*
@@ -236,7 +304,40 @@ public class ProblemSet3 {
      */
 
     public void state() {
+      final int F_FREEZING_POINT = 32;
+      		final int F_BOILING_POINT = 212;
+      		final int C_FREEZING_POINT = 0;
+      		final int C_BOILING_POINT = 100;
 
+      		System.out.print("\nEnter a temperature: ");
+      		double temperature = in.nextDouble();
+      		System.out.print("Enter a scale: ");
+      		in.nextLine();
+      		String tempuratureScale = in.nextLine().toUpperCase();
+
+      		if (!(tempuratureScale.equals("C")) && !(tempuratureScale.equals("F"))) {
+      			System.out.println("\nThat's not a valid scale.");
+      		}
+
+      		if (tempuratureScale.equals("F")) {
+      			if (temperature >= F_BOILING_POINT) {
+      				System.out.println("\nGas.");
+      			} else if (temperature <= F_FREEZING_POINT) {
+      				System.out.println("\nSolid.");
+      			} else if (temperature < F_BOILING_POINT && temperature > F_FREEZING_POINT) {
+      				System.out.println("\nLiquid.");
+      			}
+      		}
+
+      		if (tempuratureScale.equals("C")) {
+      			if (temperature >= C_BOILING_POINT) {
+      				System.out.println("\nGas.\n");
+      			} else if (temperature <= C_FREEZING_POINT) {
+      				System.out.println("\nSolid.\n");
+      			} else if (temperature < C_BOILING_POINT && temperature > C_FREEZING_POINT) {
+      				System.out.println("\nLiquid.\n");
+      			}
+      		}
     }
 
     /*
@@ -246,7 +347,70 @@ public class ProblemSet3 {
      */
 
     public void months() {
+        System.out.print("\nEnter a month: ");
+        String month = in.nextLine().toUpperCase();
 
+    		switch (month) {
+    			case "JANUARY":
+    			case "JANU":
+    			case "JAN":
+    				System.out.println("\n31 days.");
+    				break;
+    			case "FEBRUARY":
+    			case "FEBR":
+    			case "FEB":
+    				System.out.println("\n28 or 29 days.");
+            break;
+    			case "MARCH":
+    			case "MARC":
+    			case "MAR":
+    				System.out.println("\n31 days.");
+    				break;
+    			case "APRIL":
+    			case "APRI":
+    			case "APR":
+    				System.out.println("\n30 days.");
+    				break;
+    			case "MAY":
+    				System.out.println("\n31 days.");
+    				break;
+    			case "JUNE":
+    			case "JUN":
+    				System.out.println("\n30 days.");
+    	      break;
+    			case "JULY":
+    			case "JUL":
+            System.out.println("\n31 days.");
+            break;
+    			case "AUGUST":
+    			case "AUGU":
+    			case "AUG":
+	          System.out.println("\n31 days.");
+	          break;
+    			case "SEPTEMBER":
+    			case "SEPT":
+    			case "SEP":
+            System.out.println("\n30 days.");
+            break;
+    			case "OCTOBER":
+    			case "OCTO":
+    			case "OCT":
+            System.out.println("\n31 days.");
+            break;
+    			case "NOVEMBER":
+    			case "NOVE":
+    			case "NOV":
+            System.out.println("\n30 days.");
+            break;
+    			case "DECEMBER":
+    			case "DECE":
+    			case "DEC":
+            System.out.println("\n31 days.");
+            break;
+    			default:
+            System.out.println("\nThat's not a valid month.");
+            break;
+    		}
     }
 
     /*
