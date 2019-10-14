@@ -28,14 +28,14 @@ public class ProblemSet3 {
 
         // comment out or uncomment as needed
 
-        // ps.sign();          // executes Exercise 1
-        // ps.parity();        // executes Exercise 2
-        // ps.ordered();       // executes Exercise 3
-        // ps.gpa();           // executes Exercise 4
-        // ps.grade();         // executes Exercise 5
-        // ps.cards();         // executes Exercise 6
-        // ps.leapYear();      // executes Exercise 7
-        // ps.state();         // executes Exercise 8
+        ps.sign();          // executes Exercise 1
+        ps.parity();        // executes Exercise 2
+        ps.ordered();       // executes Exercise 3
+        ps.gpa();           // executes Exercise 4
+        ps.grade();         // executes Exercise 5
+        ps.cards();         // executes Exercise 6
+        ps.leapYear();      // executes Exercise 7
+        ps.state();         // executes Exercise 8
         ps.months();        // executes Exercise 9
         ps.salary();        // executes Exercise 10
 
@@ -286,14 +286,14 @@ public class ProblemSet3 {
      */
 
     public void leapYear() {
-      System.out.print("\nEnter a year: ");
-      long year = in.nextLong();
+        System.out.print("\nEnter a year: ");
+        long year = in.nextLong();
 
-      if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-        System.out.println("\n" + year + " is a leap year.");
-      } else {
-        System.out.println("\n" + year + " is not a leap year.\n");
-      }
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+          System.out.println("\n" + year + " is a leap year.");
+        } else {
+          System.out.println("\n" + year + " is not a leap year.\n");
+        }
     }
 
     /*
@@ -420,6 +420,30 @@ public class ProblemSet3 {
      */
 
     public void salary() {
+        final double OT_THRESHOLD = 40;
+        final double OT_PAY_MULTIPLIER = 1.5;
+    		double pay;
+        double otHours;
 
-    }
+        System.out.print("\nWage: ");
+        double wage = in.nextDouble();
+        System.out.print("Hours: ");
+        double hours = in.nextDouble();
+
+    		 if (wage < 0.00) {
+             System.out.println("Your wage must be greater than or equal to $0.00/hour.");
+         }
+         if (hours < 0.0) {
+             System.out.println("Your hours must be greater than or equal to 0.0.");
+         }
+
+         if (hours > OT_THRESHOLD) {
+             otHours = hours - OT_THRESHOLD;
+             pay = 40 * wage + otHours * OT_PAY_MULTIPLIER * wage;
+             System.out.printf("\nYou'll make $%,.2f this week.\n\n\n", pay);
+         } else {
+             pay = hours * wage;
+             System.out.printf("\nYou'll make $%,.2f this week.\n\n\n", pay);
+         }
+     }
 }
